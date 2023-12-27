@@ -1,0 +1,27 @@
+using System.Reflection.Metadata.Ecma335;
+
+int[,] array = {{1, 1, 1}, {-1, 1, 1}, {-1, 1, -2}};
+
+int Sum(int[,] arr, int num){
+  int sum = 0;
+  for(int i = 0; i < arr.GetLength(0) ; i++){
+    sum += arr[num, i];
+  }
+  return sum;
+}
+
+int[] sums = new int[array.GetLength(0)];
+for(int i = 0; i < array.GetLength(0) ; i++){
+  sums[i] = Sum(array, i);
+}
+
+
+
+int minSum  = int.MaxValue;
+
+for(int i = 0; i < sums.Length   ; i++ )
+if(sums[i] <= minSum) minSum = sums[i];
+
+
+
+Console.WriteLine(minSum);

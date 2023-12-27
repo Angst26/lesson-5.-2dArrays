@@ -1,0 +1,45 @@
+public class Program{
+
+static void Show(long[,] arr){
+  for(int i = 0; i < arr.GetLength(0); i++){
+    for(int j = 0; j < arr.GetLength(1); j++)
+    Console.Write(i + ", " + j + ": " + arr[i, j]+ "\n");
+  }
+}
+
+static void Changer(long[,] arr){
+  long[] curr = new long[arr.GetLength(1)];
+  for(int i = 0; i < arr.GetLength(1); i++){
+    curr[i] = arr[0, i];
+    arr[0 ,i] = arr[arr.GetLength(0) -1 , i];
+  }
+  for(int i = 0; i < arr.GetLength(1); i++){
+    arr[arr.GetLength(0) -1, i] = curr[i];
+  } 
+  
+}
+
+static void Fill_in(long[,] arr){
+  Random random = new Random();
+  for(int i = 0; i < arr.GetLength(0); i++){
+    for(int j = 0; j < arr.GetLength(1); j++){
+      arr[i, j] = random.NextInt64(1, 100);
+    }
+  }
+}
+
+
+/////////////////////////////////
+  static void Main()
+{
+  long [,] array  = new long [m, n];
+  Fill_in(array);
+  Show(array);
+  Console.WriteLine("Меянем первую и последнюю строку массива... \n");
+  Changer(array);
+  Show(array);
+  
+}
+
+
+}

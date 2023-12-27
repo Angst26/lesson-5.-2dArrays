@@ -1,0 +1,31 @@
+public class Program{
+
+
+static void fill_in(long[,] arr){
+  Random random = new Random();
+  for(int i = 0; i < arr.GetLength(0); i++){
+    for(int j = 0; j < arr.GetLength(1); j++){
+      arr[i, j] = random.NextInt64(1, 100);
+    }
+  }
+}
+
+
+static void show_a_variable(long[,] arr,int i, int j){
+   if(i < arr.GetLength(0) && j < arr.GetLength(1))
+Console.WriteLine($"{i}, {j}: {arr[i, j]}"); 
+  else Console.WriteLine("out of borders!!!");
+}
+ static int m = 10; 
+ static int n  = 10;
+  static void Main()
+{
+  long [,] array  = new long [m, n];
+  fill_in(array);
+  Console.Write($"Введите индекс массива i: "); int searchI = Convert.ToInt32(Console.ReadLine());
+  Console.Write($"Введите индекс массива j: "); int searchJ = Convert.ToInt32(Console.ReadLine());
+
+  show_a_variable(array, searchI, searchJ);
+}
+
+}
